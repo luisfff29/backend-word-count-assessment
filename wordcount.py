@@ -71,8 +71,10 @@ def print_top(filename):
         d = {}
         for i in uni_words:
             d[i] = list_words.count(i)
-        top20 = sorted(d.items(), key=lambda item: item[1], reverse=True)
-        print(top20)
+        top20 = sorted(d.items(), key=lambda i: i[1], reverse=True)[:20]
+        print('Top 20 most frequent words in ' + filename)
+        for k, v in top20:
+            print('{} : {}'.format(k, v))
 
 
 def main():

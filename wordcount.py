@@ -53,9 +53,17 @@ import sys
 # calls the print_words() and print_top() functions which you must define.
 
 
+def print_words(filename):
+    pass
+
+
+def print_top(filename):
+    pass
+
+
 def main():
     if len(sys.argv) != 3:
-        print 'usage: python wordcount.py {--count | --topcount} file'
+        print('usage: python wordcount.py {--count | --topcount} file')
         sys.exit(1)
 
     option = sys.argv[1]
@@ -65,7 +73,7 @@ def main():
     elif option == '--topcount':
         print_top(filename)
     else:
-        print 'unknown option: ' + option
+        print('unknown option: ' + option)
         sys.exit(1)
 
 

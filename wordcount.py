@@ -71,7 +71,7 @@ def print_top(filename):
         d = {}
         for i in uni_words:
             d[i] = list_words.count(i)
-        top20 = sorted(d.items())
+        top20 = sorted(d.items(), key=lambda item: item[1], reverse=True)
         print(top20)
 
 

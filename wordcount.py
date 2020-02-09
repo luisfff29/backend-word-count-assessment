@@ -57,7 +57,10 @@ def print_words(filename):
     with open(filename, 'r') as rf:
         list_words = rf.read().lower().split()
         uni_words = set(list_words)
-        print(uni_words)
+        d = {}
+        for i in uni_words:
+            d[i] = list_words.count(i)
+        print(d)
 
 
 def print_top(filename):

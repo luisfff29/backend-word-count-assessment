@@ -54,7 +54,8 @@ import sys
 
 
 def print_words(filename):
-    pass
+    with open(filename, 'r') as rf:
+        print(rf.read())
 
 
 def print_top(filename):

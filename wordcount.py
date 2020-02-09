@@ -60,7 +60,8 @@ def print_words(filename):
         d = {}
         for i in uni_words:
             d[i] = list_words.count(i)
-        print(d)
+        for k in sorted(d.keys()):
+            print('{} : {}'.format(k, d.get(k)))
 
 
 def print_top(filename):

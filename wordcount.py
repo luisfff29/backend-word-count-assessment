@@ -53,9 +53,33 @@ import sys
 # calls the print_words() and print_top() functions which you must define.
 
 
+def print_words(filename):
+    with open(filename, 'r') as rf:
+        list_words = rf.read().lower().split()
+        uni_words = set(list_words)
+        d = {}
+        for i in uni_words:
+            d[i] = list_words.count(i)
+        for k in sorted(d.keys()):
+            print('{} : {}'.format(k, d.get(k)))
+
+
+def print_top(filename):
+    with open(filename, 'r') as rf:
+        list_words = rf.read().lower().split()
+        uni_words = set(list_words)
+        d = {}
+        for i in uni_words:
+            d[i] = list_words.count(i)
+        top20 = sorted(d.items(), key=lambda i: i[1], reverse=True)[:20]
+        print('Top 20 most frequent words in ' + filename)
+        for k, v in top20:
+            print('{} : {}'.format(k, v))
+
+
 def main():
     if len(sys.argv) != 3:
-        print 'usage: python wordcount.py {--count | --topcount} file'
+        print('usage: python wordcount.py {--count | --topcount} file')
         sys.exit(1)
 
     option = sys.argv[1]
@@ -65,7 +89,7 @@ def main():
     elif option == '--topcount':
         print_top(filename)
     else:
-        print 'unknown option: ' + option
+        print('unknown option: ' + option)
         sys.exit(1)
 
 
